@@ -1,0 +1,10 @@
+--help
+-h
+--version
+-v
+--config
+-c
+--input
+-i
+--output
+-o
