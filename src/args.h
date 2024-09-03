@@ -3,18 +3,20 @@
 
 #include "error.h"
 
-#define TLC_ARGS_STATE_TOKEN 1
-#define TLC_ARGS_STATE_CONFIG 2
-#define TLC_ARGS_STATE_INPUT 3
-#define TLC_ARGS_STATE_OUTPUT 4
+#define TLC_ARGS_KEYS_N 5
 
 typedef enum {
-    TLC_ARGS_TOKEN_HELP = 1,
-    TLC_ARGS_TOKEN_VERSION,
-    TLC_ARGS_TOKEN_CONFIG,
-    TLC_ARGS_TOKEN_INPUT,
-    TLC_ARGS_TOKEN_OUTPUT,
-} tlc_args_token;
+    TLC_ARGS_KEY_HELP = 1,
+    TLC_ARGS_KEY_VERSION,
+    TLC_ARGS_KEY_CONFIG,
+    TLC_ARGS_KEY_INPUT,
+    TLC_ARGS_KEY_OUTPUT,
+} tlc_args_key;
+
+typedef enum {
+    TLC_ARGS_PARSER_STATE_KEY = 1,
+    TLC_ARGS_PARSER_STATE_VALUE,
+} tlc_args_parser_state;
 
 typedef struct {
     int print_help;
@@ -23,6 +25,13 @@ typedef struct {
     const char *input_path; // alias of argv, do not deallocate
     const char *output_path; // alias of argv, do not deallocate
 } tlc_args;
+
+typedef struct {
+    tlc_args *args;
+    tlc_args_parser_state state;
+    tlc_args_key key;
+    int seen_keys[1 + TLC_ARGS_KEYS_N];
+} tlc_args_parser;
 
 tlc_args *tlc_parse_args(int argc, const char **argv);
 void tlc_check_args(tlc_args *args);

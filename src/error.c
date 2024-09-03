@@ -45,7 +45,7 @@ static const char *escape[256] = {
 void tlc_error(const char *fmt, ...) {
     va_list ap;
     va_start(ap, fmt);
-    fprintf(stderr, "Error: ");
+    fprintf(stderr, "TLC Error: ");
     vfprintf(stderr, fmt, ap);
     fprintf(stderr, "\n");
     va_end(ap);
@@ -55,7 +55,7 @@ void tlc_error(const char *fmt, ...) {
 void tlc_error_errno(const char *fmt, ...) {
     va_list ap;
     va_start(ap, fmt);
-    fprintf(stderr, "Error: ");
+    fprintf(stderr, "TLC Error: ");
     vfprintf(stderr, fmt, ap);
     fprintf(stderr, "; errno: %s (#%d)\n", strerror(errno), errno);
     va_end(ap);
@@ -82,16 +82,12 @@ void *tlc_calloc_or_error(size_t size) {
     return ptr;
 }
 
-void tlc_print_escaped_string(
-    const char *str,
-    size_t str_len,
-    size_t max_bytes
-) {
-    if (max_bytes > str_len) {
-        max_bytes = str_len;
+void tlc_print_escaped_string(const char *str, size_t len, size_t max) {
+    if (max > len) {
+        max = len;
     }
 
-    for (size_t i = 0; i < max_bytes; ++i) {
+    for (size_t i = 0; i < max; ++i) {
         unsigned char c = str[i];
         const char *esc = escape[c];
 

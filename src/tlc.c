@@ -28,13 +28,15 @@ int main(int argc, const char **argv) {
 
     tlc_config *config = tlc_init_config(args->config_path);
     tlc_check_config(config);
-
     tlc_file *file = tlc_read_file(args->input_path);
+    tlc_tokens *tokens = tlc_parse_file(file, config);
 
     tlc_print_args(args);
     tlc_print_config(config);
     tlc_print_file(file, "input file");
+    tlc_print_tokens(tokens);
 
+    tlc_free_tokens(tokens);
     tlc_free_file(file);
     tlc_free_config(config);
     tlc_free_args(args);

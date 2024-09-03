@@ -4,6 +4,8 @@
 #include "args.h"
 #include "file.h"
 #include "config.h"
+#include "tokens.h"
+#include "parser.h"
 
 #define TLC_VERSION "0.0.1"
 

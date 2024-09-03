@@ -12,6 +12,8 @@
 #define TLC_CONFIG_DEFAULT_ALLOW_SEMICOLON 1
 #define TLC_CONFIG_DEFAULT_ALLOW_R 1
 
+#define TLC_CONFIG_KEYS_N 3
+
 typedef enum {
     TLC_CONFIG_KEY_RM_COMMENTS = 1,
     TLC_CONFIG_KEY_ALLOW_SEMICOLON,
@@ -35,11 +37,12 @@ typedef struct {
     tlc_config *config;
     tlc_file *file;
     tlc_config_parser_state state;
-    int line_n;
-    int pos_n;
     size_t parsed;
+    size_t line_n;
+    size_t line_start;
     size_t word_start;
     tlc_config_key key;
+    int seen_keys[1 + TLC_CONFIG_KEYS_N];
 } tlc_config_parser;
 
 tlc_config *tlc_init_config(const char *path);

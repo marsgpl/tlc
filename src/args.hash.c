@@ -48,7 +48,7 @@ static int get_hash(const char *str, unsigned int len) {
     return hval + asso_values[(unsigned char)str[len - 1]];
 }
 
-int tlc_args_token_id(const char *str, int len) {
+int tlc_args_key_id(const char *str, int len) {
     static const int lengths[] = {
         2,  0,  0,  2,  2,  8,  0,  0,  8,  2,  2,  0,  0,  0,
         6,  7,  0,  0,  0,  9
@@ -72,20 +72,20 @@ int tlc_args_token_id(const char *str, int len) {
     };
 
     static const int ids[] = {
-        TLC_ARGS_TOKEN_OUTPUT,
+        TLC_ARGS_KEY_OUTPUT,
         0, 0,
-        TLC_ARGS_TOKEN_CONFIG,
-        TLC_ARGS_TOKEN_VERSION,
-        TLC_ARGS_TOKEN_OUTPUT,
+        TLC_ARGS_KEY_CONFIG,
+        TLC_ARGS_KEY_VERSION,
+        TLC_ARGS_KEY_OUTPUT,
         0, 0,
-        TLC_ARGS_TOKEN_CONFIG,
-        TLC_ARGS_TOKEN_HELP,
-        TLC_ARGS_TOKEN_INPUT,
+        TLC_ARGS_KEY_CONFIG,
+        TLC_ARGS_KEY_HELP,
+        TLC_ARGS_KEY_INPUT,
         0, 0, 0,
-        TLC_ARGS_TOKEN_HELP,
-        TLC_ARGS_TOKEN_INPUT,
+        TLC_ARGS_KEY_HELP,
+        TLC_ARGS_KEY_INPUT,
         0, 0, 0,
-        TLC_ARGS_TOKEN_VERSION,
+        TLC_ARGS_KEY_VERSION,
     };
 
     if (len <= MAX_WORD_LENGTH && len >= MIN_WORD_LENGTH) {
