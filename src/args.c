@@ -38,7 +38,7 @@ static inline void on_key(p *parser, const char *arg) {
         return;
     }
 
-    int key = tlc_args_key_id(arg, strlen(arg));
+    int key = tlc_arg_key_id(arg, strlen(arg));
 
     if (!key) {
         error("unsupported argument: %s; try: tlc --help", arg);

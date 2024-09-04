@@ -65,5 +65,3 @@ int tlc_config_key_id(const char *str, int len) {
 
     return 0;
 }
-
-#undef MAX_HASH_VALUE

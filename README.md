@@ -20,6 +20,7 @@ tlc --config custom.conf -i src -o dst    # directory
 ## Gperf
 
 ```sh
-gperf --no-strlen --compare-lengths config.gperf
 gperf --no-strlen --compare-lengths args.gperf
+gperf --no-strlen --compare-lengths config.gperf
+gperf --no-strlen --compare-lengths tokens.gperf
 ```

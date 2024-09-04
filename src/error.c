@@ -82,6 +82,16 @@ void *tlc_calloc_or_error(size_t size) {
     return ptr;
 }
 
+void *tlc_realloc_or_error(void *ptr, size_t size) {
+    ptr = realloc(ptr, size);
+
+    if (ptr == NULL) {
+        tlc_error_errno("realloc failed; size: %lu", size);
+    }
+
+    return ptr;
+}
+
 void tlc_print_escaped_string(const char *str, size_t len, size_t max) {
     if (max > len) {
         max = len;

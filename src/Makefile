@@ -28,7 +28,7 @@ error.o: error.h
 args.o: args.h error.h args.hash.c
 file.o: file.h error.h
 config.o: config.h error.h file.h case.h config.hash.c
-tokens.o: tokens.h error.h
-parser.o: parser.h error.h file.h config.h tokens.h
+tokens.o: tokens.h error.h file.h tokens.hash.c
+parser.o: parser.h error.h file.h config.h tokens.h case.h
 
 .PHONY: build clean install uninstall

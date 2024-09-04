@@ -34,7 +34,7 @@ int main(int argc, const char **argv) {
     tlc_print_args(args);
     tlc_print_config(config);
     tlc_print_file(file, "input file");
-    tlc_print_tokens(tokens);
+    tlc_print_tokens(tokens, file);
 
     tlc_free_tokens(tokens);
     tlc_free_file(file);

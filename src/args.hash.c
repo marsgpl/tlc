@@ -48,7 +48,7 @@ static int get_hash(const char *str, unsigned int len) {
     return hval + asso_values[(unsigned char)str[len - 1]];
 }
 
-int tlc_args_key_id(const char *str, int len) {
+int tlc_arg_key_id(const char *str, int len) {
     static const int lengths[] = {
         2,  0,  0,  2,  2,  8,  0,  0,  8,  2,  2,  0,  0,  0,
         6,  7,  0,  0,  0,  9
@@ -102,5 +102,3 @@ int tlc_args_key_id(const char *str, int len) {
 
     return 0;
 }
-
-#undef MAX_HASH_VALUE

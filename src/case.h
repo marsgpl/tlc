@@ -17,4 +17,10 @@
     case '0': case '1': case '2': case '3': case '4': case '5': case '6': \
     case '7': case '8': case '9'
 
+#define TLC_CASE_HEX_LOWER \
+    case 'a': case 'b': case 'c': case 'd': case 'e': case 'f'
+
+#define TLC_CASE_HEX_UPPER \
+    case 'A': case 'B': case 'C': case 'D': case 'E': case 'F'
+
 #endif
