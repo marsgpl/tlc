@@ -38,8 +38,8 @@ typedef enum {
     TLC_TOKEN_WORD,
     TLC_TOKEN_INTEGER,
     TLC_TOKEN_FLOAT,
-    TLC_TOKEN_SINGLE_QUOTE_STRING, // 'xxx'
-    TLC_TOKEN_DOUBLE_QUOTE_STRING, // "xxx"
+    TLC_TOKEN_SINGLE_QUOTE_STRING, // '....'
+    TLC_TOKEN_DOUBLE_QUOTE_STRING, // "....."
     TLC_TOKEN_SEMICOLON, // ;
     TLC_TOKEN_ASTERISK, // *
     TLC_TOKEN_PERCENT, // %
@@ -55,7 +55,8 @@ typedef enum {
     TLC_TOKEN_R_CURL_BR, // }
     TLC_TOKEN_R_SQ_BR, // ]
     TLC_TOKEN_L_SQ_BR, // [
-    TLC_TOKEN_MULTI_LINE_STRING, // [[
+    TLC_TOKEN_MULTI_LINE_STRING, // [[.....]]
+    TLC_TOKEN_LONG_BRACKET_STRING, // [===[......]===]
     TLC_TOKEN_ASSIGN, // =
     TLC_TOKEN_EQ, // ==
     TLC_TOKEN_SLASH, // /
@@ -70,12 +71,12 @@ typedef enum {
     TLC_TOKEN_R_ANGLE_BR, // >
     TLC_TOKEN_R_SHIFT, // >>
     TLC_TOKEN_GTE, // >=
-    TLC_TOKEN_PERIOD, // .
+    TLC_TOKEN_DOT, // .
     TLC_TOKEN_CONCAT, // ..
     TLC_TOKEN_ELLIPSIS, // ...
     TLC_TOKEN_MINUS, // -
-    TLC_TOKEN_SINGLE_LINE_COMMENT, // --
-    TLC_TOKEN_MULTI_LINE_COMMENT, // --[[
+    TLC_TOKEN_SINGLE_LINE_COMMENT, // --......\n
+    TLC_TOKEN_MULTI_LINE_COMMENT, // --[[.......]]
 } tlc_token_type;
 
 typedef struct {
