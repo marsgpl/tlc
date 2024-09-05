@@ -1,6 +1,6 @@
 # TLC
 
-Typed Lua Compiler
+Typed Lua Compiler and Language Server
 
 ## Build + Install
 

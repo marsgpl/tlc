@@ -270,7 +270,6 @@ static inline void on_number(p *parser, uc c) {
         TLC_CASE_HEX_LOWER:
         TLC_CASE_HEX_UPPER:
             return;
-        // TLC_TOKEN_FLOAT: . eE pP -+
         default:
             on_number_end(parser);
             on_token_start(parser, c);
