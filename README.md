@@ -25,3 +25,7 @@ gperf --no-strlen --compare-lengths args.gperf
 gperf --no-strlen --compare-lengths config.gperf
 gperf --no-strlen --compare-lengths tokens.gperf
 ```
+
+## Integration
+
+Zed editor: <https://github.com/marsgpl/tlc-zed-extension>
