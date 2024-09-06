@@ -3,7 +3,7 @@
 
 #include "error.h"
 
-#define TLC_ARGS_KEYS_N 5
+#define TLC_ARGS_KEYS_N 6
 
 typedef enum {
     TLC_ARGS_KEY_HELP = 1,
@@ -11,6 +11,7 @@ typedef enum {
     TLC_ARGS_KEY_CONFIG,
     TLC_ARGS_KEY_INPUT,
     TLC_ARGS_KEY_OUTPUT,
+    TLC_ARGS_KEY_SERVER,
 } tlc_args_key;
 
 typedef enum {
@@ -19,6 +20,7 @@ typedef enum {
 } tlc_args_parser_state;
 
 typedef struct {
+    int server;
     int print_help;
     int print_version;
     const char *config_path; // alias of argv, do not deallocate

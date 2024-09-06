@@ -15,6 +15,7 @@ make install
 tlc --help                                # show help
 tlc -o result.lua example.tl              # single file
 tlc --config custom.conf -i src -o dst    # directory
+tlc --server                              # start as language server
 ```
 
 ## Gperf

@@ -57,6 +57,9 @@ static inline void on_key(p *parser, const char *arg) {
         case TLC_ARGS_KEY_VERSION:
             parser->args->print_version = 1;
             return;
+        case TLC_ARGS_KEY_SERVER:
+            parser->args->server = 1;
+            return;
         default:
             parser->state = TLC_ARGS_PARSER_STATE_VALUE;
             parser->key = key;
@@ -97,7 +100,7 @@ tlc_args *tlc_parse_args(int argc, const char **argv) {
 }
 
 void tlc_check_args(tlc_args *args) {
-    if (args->print_help || args->print_version) {
+    if (args->print_help || args->print_version || args->server) {
         return;
     }
 
@@ -120,6 +123,7 @@ void tlc_check_args(tlc_args *args) {
 
 void tlc_print_args(tlc_args *args) {
     printf("args:\n");
+    printf("    server: %d\n", args->server);
     printf("    print_help: %d\n", args->print_help);
     printf("    print_version: %d\n", args->print_version);
     printf("    config_path: %s\n", args->config_path);

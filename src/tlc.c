@@ -4,7 +4,7 @@ static int print_help(void) {
     printf(TLC_INFO_HEADER
         TLC_INFO_VERSION
         "\n" TLC_INFO_USAGE "\n"
-        TLC_INFO_OPTIONS
+        TLC_INFO_OPTIONS "\n"
         TLC_INFO_EXAMPLES,
             TLC_VERSION,
             TLC_CONFIG_PATH_DEFAULT);
@@ -16,6 +16,11 @@ static int print_version(void) {
     return 0;
 }
 
+static int start_server(void) {
+    tlc_error("TODO: Language Server is not implemented yet");
+    return 0;
+}
+
 int main(int argc, const char **argv) {
     tlc_args *args = tlc_parse_args(argc, argv);
     tlc_check_args(args);
@@ -24,6 +29,8 @@ int main(int argc, const char **argv) {
         return print_help();
     } else if (args->print_version) {
         return print_version();
+    } else if (args->server) {
+        return start_server();
     }
 
     tlc_config *config = tlc_init_config(args->config_path);

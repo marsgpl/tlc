@@ -16,9 +16,9 @@ static int get_hash(const char *str, unsigned int len) {
         20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
         20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
         20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
-        20, 20, 20, 20, 20, 20, 20, 20, 20,  3,
-        20, 20, 20,  5,  9, 10, 20, 20, 20, 20,
-        15,  0,  5, 20, 20, 20,  5, 20,  4, 20,
+        20, 20, 20, 20, 20, 20, 20, 20, 20, 13,
+        20, 20, 20,  5,  3, 10, 20, 20, 20, 20,
+        15,  0,  5, 20,  5,  9,  5, 20,  4, 20,
         20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
         20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
         20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
@@ -50,42 +50,46 @@ static int get_hash(const char *str, unsigned int len) {
 
 int tlc_arg_key_id(const char *str, int len) {
     static const int lengths[] = {
-        2,  0,  0,  2,  2,  8,  0,  0,  8,  2,  2,  0,  0,  0,
-        6,  7,  0,  0,  0,  9
+        2,  0,  0,  2,  2,  8,  0,  0,  6,  2,  2,  0,  0,  2,
+        8,  7,  0,  0,  8,  9
     };
 
     static const char *values[] = {
         "-o",
         "", "",
-        "-c",
+        "-h",
         "-v",
         "--output",
         "", "",
-        "--config",
-        "-h",
-        "-i",
-        "", "", "",
         "--help",
+        "-s",
+        "-i",
+        "", "",
+        "-c",
+        "--server",
         "--input",
-        "", "", "",
+        "", "",
+        "--config",
         "--version"
     };
 
     static const int ids[] = {
         TLC_ARGS_KEY_OUTPUT,
         0, 0,
-        TLC_ARGS_KEY_CONFIG,
+        TLC_ARGS_KEY_HELP,
         TLC_ARGS_KEY_VERSION,
         TLC_ARGS_KEY_OUTPUT,
         0, 0,
+        TLC_ARGS_KEY_HELP,
+        TLC_ARGS_KEY_SERVER,
+        TLC_ARGS_KEY_INPUT,
+        0, 0,
         TLC_ARGS_KEY_CONFIG,
-        TLC_ARGS_KEY_HELP,
+        TLC_ARGS_KEY_SERVER,
         TLC_ARGS_KEY_INPUT,
-        0, 0, 0,
-        TLC_ARGS_KEY_HELP,
-        TLC_ARGS_KEY_INPUT,
-        0, 0, 0,
-        TLC_ARGS_KEY_VERSION,
+        0, 0,
+        TLC_ARGS_KEY_CONFIG,
+        TLC_ARGS_KEY_VERSION
     };
 
     if (len <= MAX_WORD_LENGTH && len >= MIN_WORD_LENGTH) {

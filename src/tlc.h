@@ -13,16 +13,18 @@
 #define TLC_INFO_VERSION "Version: %s\n"
 #define TLC_INFO_USAGE "Usage: tlc [options] [input_path]\n"
 #define TLC_INFO_OPTIONS "Options:\n" \
-"    -h, --help       Print this help message and exit\n" \
-"    -v, --version    Print tlc version and exit\n" \
 "    -c, --config     Path to tlc config file\n" \
 "                     Default: %s\n" \
+"    -h, --help       Print this help message and exit\n" \
 "    -i, --input      Path to source file or directory\n" \
 "                     Explicitly usable if path starts with -\n" \
 "    -o, --output     Path to destination file or directory\n" \
-"                     Default: print to STDOUT\n"
+"                     Default: print to STDOUT\n" \
+"    -s, --server     Start TLC in a Language Server mode\n" \
+"    -v, --version    Print tlc version and exit\n"
 #define TLC_INFO_EXAMPLES "Examples:\n" \
 "    tlc -o result.lua example.tl              # single file\n" \
-"    tlc --config custom.conf -i src -o dst    # directory\n"
+"    tlc --config custom.conf -i src -o dst    # directory\n" \
+"    tlc --server                              # start as language server\n"
 
 #endif
