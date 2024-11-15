@@ -1,51 +1,78 @@
-local _test_age <const> = 100
+-- variables
 
-local t = {
-    [3] = {{{{{{ 0x1.fp10 }}}}},},
-    k = "now"
-};
+local a
+local b = 1
+local c <const> = 2
+d = 3
+_G.e = 4
+_G['f'] = 5
+local _1Xy_2
+
+-- numbers
+-- %d(%x|%.|([Ee][+-]?))*
+-- 0[Xx](%x|%.|([Pp][+-]?))*
+
+local numbers = {
+    int = {
+        dec = {
+            0,
+            000111,
+            1234567890,
+        },
+        hex = {
+            0X0,
+            0xff,
+            0xD3ad,
+        },
+    },
+    float = {
+        dec = {
+            0.,
+            11.,
+            00.0,
+            3.0,
+            3.1416,
+            .0,
+            .1416,
+            314.16e-2,
+            0.31416E1,
+            34e+2,
+            0.e1,
+        },
+        hex = {
+            0x.0,
+            0x.a,
+            0x0.,
+            0x0.1E,
+            0xA23p-4,
+            0X1.921FB54442D18P+1,
+            0x0p0,
+        },
+    },
+}
 
 -- strings
 
-a[1] = 'alo\n123"'
-a[2] = "alo\n123\"'"
-a.aa = '\97lo\10\04923"'
-a["asd"] = [[alo
+local s1 = 'alo\n123"'
+local s2 = "alo\n123\"'"
+local s3 = '\97lo\10\04923"'
+local s4 = [[alo
 123"]]
-a[4] = [===[
-alo
-123"]===]
+local s5 = [===[alo]===]
+local s6 = [=[
 
--- integers
+ok
 
-local b
-b = 3
-b = 345
-b = 0xff
-b = 0xBEBADA
-
--- floats
-
-local c
-c = 3.0
-c = 3.1416
-c = 314.16e-2
-c = 0.31416E1
-c = 34e+1
-c = 0x0.1E
-c = 0xA23p-4
-c = 0X1.921FB54442D18P+1
+]=]
 
 --[[
-    fn def
-    might need to add more variations
+    some long
+    comment
 ]]
+
+-- fn
 
 local function test(name: string, age: number, ...): void
     print("name", name)
     print("age:", age, ...)
 end
-
--- fn call
-
-test("Roberto", _test_age + -10)
